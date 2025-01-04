@@ -2,13 +2,13 @@ import React from 'react'
 import { FaBeer } from "react-icons/fa";
 
 
-const LineItem = ({ handleCheck, handleDelete, items }) => {
+const LineItem = ({ handleCheck, handleDelete, item}) => {
   return (
     <li key={item.id} className="item">
           <input
             type="checkbox"
             checked={item.checked}
-            id={`checkbox-${item.id}`} // Ensure unique id
+            id={`checkbox-${item.id}`}
             onChange={() => handleCheck(item.id)}
           />
           <label

@@ -9,7 +9,7 @@ const ItemsList = ({ handleCheck, handleDelete, items }) => {
         <LineItem 
         handleCheck ={handleCheck}
         handleDelete = {handleDelete}
-        items = {items}
+        item = {item}
         />
       ))}
     </ul>
