@@ -1,21 +1,58 @@
 import React from "react";
-import ItemsList from "./ItemsList";
+import { useState } from "react";
+import { FaBeer } from "react-icons/fa";
 
 
 
-const Content = ({ handleCheck, handleDelete, items }) => {
+const Content = () => {
+  const [items, setItems] = useState([
+    {
+    id: 1,
+    checked : false,
+    item : "Wake up early morning",
+    },
+    {
+    id: 2,
+    checked : false,
+    item : "Fresh up daily first",
+    },
+    {
+    id: 3,
+    checked : true,
+    item : "Do workout",
+    },
+  ]);
+
+  const handleCheck = (id) =>{
+    const updatedItems = items.map((item) => {
+      item.id === id ? {...item, checked: !item.checked} : item
+    })
+   setItems(updatedItems);
+  }
+
   return (
     <>
       <main>
-        {items.length ? (
-          <ItemsList 
-          handleCheck ={handleCheck}
-          handleDelete = {handleDelete}
-          items = {items}
-          />
-        ) : (
-          <div>Empty list</div>
-        )}
+        <ul>
+        {
+          items.map((item) => (
+            <li key={item.id} className="item">
+              <input 
+              type="checkbox" 
+              checked={item.checked} 
+              id="addForm"
+              onChange={() => handleCheck(item.id)}
+              />
+              <span style={{width: "100%"}}>{item.item}</span>
+              <FaBeer  type="button"/>
+              
+              {/* <button type="button"><FaBeer/></button> */}
+            </li>
+            
+          ))
+        }
+        </ul>
+        
       </main>
     </>
   );
