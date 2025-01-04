@@ -1,14 +1,17 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({items}) => {
     const year = new Date();
 
   return (
-    <>
-        <footer>
-            Copyright &amp; {year.getFullYear()}
-        </footer>
-    </>
+    <footer>
+      <div style={{display: 'flex', alignItems: 'center',marginBottom:"5px"}}>
+        {items.length} {items.length > 1 ? 'items' : 'item'}
+      </div>
+      <div>
+        &copy; {year.getFullYear()}
+      </div>
+    </footer>
   )
 }
 
