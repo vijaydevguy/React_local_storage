@@ -22,6 +22,7 @@ const LineItem = ({ handleCheck, handleDelete, item}) => {
             tabIndex={0}
             onClick={() => handleDelete(item.id)}
             type="button"
+            aria-label={`Delete ${item.item}`}
           />
           {/* <button type="button"><FaBeer/></button> */}
         </li>

@@ -5,6 +5,7 @@ const Content = ({handleCheck,handleDelete,items}) => {
   return (
     <>
       <main>
+      {(items.length) ? (
         <ul>
           {items.map((item) => (
             <LineItem
@@ -15,6 +16,7 @@ const Content = ({handleCheck,handleDelete,items}) => {
             />
           ))}
         </ul>
+        ): (<p>Add items</p>)}
       </main>
     </>
   );
